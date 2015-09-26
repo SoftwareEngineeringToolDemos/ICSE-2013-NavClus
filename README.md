@@ -18,3 +18,23 @@ Seonah Lee, Sungwon Kang, and Matt Staats. 2013. NavClus: a graphical recommende
 
 Please visit http://saleese.com
 Feel free to e-mail: saleese @ kaist.ac.kr or saleese @ gmail.com
+
+<hr>
+This repository contains information related to the tool NavClus presented in International Conference of Software Engineering, 2013. The tool was originally presented in <a href="http://dl.acm.org/citation.cfm?id=2486993">this paper</a>.
+
+This repository <i>is not</i> the original repository for this tool. Here are some links to the original project:
+
+<ul>
+<li><a href="https://github.com/saleese/navclus">The Official Project Page, including source code</a></li>
+<li><a href="https://www.youtube.com/watch?v=rbrc5ERyWjQ">A Video of the Tool</a></li>
+</ul>
+
+
+In this repository for NavClus, you will find:
+
+<ul>
+<li>:white_check_mark:<a href="https://github.com/SoftwareEngineeringToolDemos/ICSE-2013-NavClus"> Source code </a></li>
+<li>:white_check_mark: The NavClus plugin (available at the top of this README.md file)</li>
+</ul>
+
+This repository was constructed by <a href="https://github.com/akottal">Asish Prabhakar Kottala</a> under the guidance of <a href="https://github.com/CaptainEmerson">Emerson Murphy-Hill</a>. Thanks to Seonah Lee, Sungwon Kang and Matt Staats for their help in establishing this repository. 
