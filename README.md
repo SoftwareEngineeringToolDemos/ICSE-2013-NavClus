@@ -28,17 +28,17 @@ Disclaimer: This repository <i>is not</i> the original repository for this tool.
 
 Here are some links to the original project:
 
-<ul>
-<li>[The Official Project Page, including source code](https://github.com/saleese/navclus)
-<li> [A Video of the Tool](https://www.youtube.com/watch?v=rbrc5ERyWjQ)
-</ul>
+
+* [The Official Project Page, including source code](https://github.com/saleese/navclus)
+* [A Video of the Tool] (https://www.youtube.com/watch?v=rbrc5ERyWjQ)
+
 
 
 In this repository for NavClus, you will find:
 
-<ul>
-<li>:white_check_mark: [Source code](https://github.com/SoftwareEngineeringToolDemos/ICSE-2013-NavClus)
-<li>:white_check_mark: [The NavClus plugin](http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=1475510)
-</ul>
+
+* :white_check_mark: [Source code](https://github.com/SoftwareEngineeringToolDemos/ICSE-2013-NavClus)
+* :white_check_mark: [The NavClus plugin](http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=1475510)
+
 
 This repository was constructed by <a href="https://github.com/akottal">Asish Prabhakar Kottala</a> under the supervision of <a href="https://github.com/CaptainEmerson">Emerson Murphy-Hill</a>. Thanks to Seonah Lee, Sungwon Kang and Matt Staats for their help in establishing this repository. 
