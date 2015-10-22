@@ -19,22 +19,26 @@ Seonah Lee, Sungwon Kang, and Matt Staats. 2013. NavClus: a graphical recommende
 Please visit http://saleese.com
 Feel free to e-mail: saleese @ kaist.ac.kr or saleese @ gmail.com
 
+#Acknowledgements by Asish Prabhakar Kottala
+
 <hr>
 This repository contains information related to the tool NavClus presented in International Conference of Software Engineering, 2013. The tool was originally presented in <a href="http://dl.acm.org/citation.cfm?id=2486993">this paper</a>.
 
-This repository <i>is not</i> the original repository for this tool. Here are some links to the original project:
+Disclaimer: This repository <i>is not</i> the original repository for this tool. 
 
-<ul>
-<li><a href="https://github.com/saleese/navclus">The Official Project Page, including source code</a></li>
-<li><a href="https://www.youtube.com/watch?v=rbrc5ERyWjQ">A Video of the Tool</a></li>
-</ul>
+Here are some links to the original project:
+
+
+* [The Official Project Page, including source code](https://github.com/saleese/navclus)
+* [A Video of the Tool] (https://www.youtube.com/watch?v=rbrc5ERyWjQ)
+
 
 
 In this repository for NavClus, you will find:
 
-<ul>
-<li>:white_check_mark:<a href="https://github.com/SoftwareEngineeringToolDemos/ICSE-2013-NavClus"> Source code </a></li>
-<li>:white_check_mark: The NavClus plugin (available at the top of this README.md file)</li>
-</ul>
 
-This repository was constructed by <a href="https://github.com/akottal">Asish Prabhakar Kottala</a> under the guidance of <a href="https://github.com/CaptainEmerson">Emerson Murphy-Hill</a>. Thanks to Seonah Lee, Sungwon Kang and Matt Staats for their help in establishing this repository. 
+* :white_check_mark: [Source code](https://github.com/SoftwareEngineeringToolDemos/ICSE-2013-NavClus)
+* :white_check_mark: [The NavClus plugin](http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=1475510)
+
+
+This repository was constructed by <a href="https://github.com/akottal">Asish Prabhakar Kottala</a> under the supervision of <a href="https://github.com/CaptainEmerson">Emerson Murphy-Hill</a>. Thanks to Seonah Lee, Sungwon Kang and Matt Staats for their help in establishing this repository. 
