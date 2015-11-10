@@ -11,3 +11,7 @@
 * VM login details:
   Username: vagrant
   Password: vagrant
+
+## Acknowledgements:
+* The commands for installing Java 8 have been taken from <a href="https://github.com/aglover">Andrew Glover's<a> <a href="https://github.com/aglover/ubuntu-equip">github repository</a>.
+* The commands for installing Eclipse in have been taken from <a href="http://blog.versioneye.com/2015/05/05/setting-up-a-dev-environment-with-vagrant/">this blog</a>.
