@@ -9,7 +9,9 @@
 * The VM boots up quickly and can be viewed from Virtual Box. But the "vagrant up" command runs for approximately half an hour.
 * The base box on which this VM is built is <a href=https://atlas.hashicorp.com/hashicorp/boxes/precise32>Ubuntu Server 12.04</a>
 * VM login details:
+
 Username: vagrant
+
 Password: vagrant
 
 ## Acknowledgements:
