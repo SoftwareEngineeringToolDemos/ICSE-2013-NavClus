@@ -1,0 +1,28 @@
+Step 1:
+
+Install the Eclipse IDE.
+
+Step 2:
+
+(a) Add the NavMine (NavClus) plugin to Eclipse IDE by dragging and dropping the NavClus tool from the following link.
+
+https://github.com/saleese/navclus
+
+(b) If the above step fails, install the plugin manually. 
+    Open Eclipse. 
+    Go to Help > "Install new software...". 
+    In the opened window, Enter "http://salab.kaist.ac.kr/navclus" in the "Work with" Text box.
+    Select the NAVCLUS checkbox.
+    Click Finish.
+    Ignore any warnings that might come up during the installation.
+    Restart eclipse if needed.
+
+Step 3:
+
+Once NavClus is installed, the interactions between the classes and files can be seen by opening the "Class View". Class View can be opened by performing the following steps.
+
+    In the Eclipse Menu bar, go to Window > Show View > Other.
+    Search for "Class View" in the "Show View" dialogue box.
+    Click on "Class View". This opens up a window where the class interactions can be seen.
+
+In this VM all the above steps have been predone and the NavClus Class View can be directly viewed by clicking the blue globe on the right sire of the eclipse window.
