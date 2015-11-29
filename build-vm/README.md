@@ -7,7 +7,8 @@
 
 ## Note:
 
-* The VM boots up quickly and can be viewed from Virtual Box. But the "vagrant up" command runs for approximately half an hour.
+* The VM boots up quickly and can be viewed from Virtual Box. But the "vagrant up" command runs for a little over half an hour.
+* Once the provisioning is done, you'll see Eclipse opened in the VM along with the NavClus view.
 * The base box on which this VM is built is <a href=https://atlas.hashicorp.com/hashicorp/boxes/precise32>Ubuntu Server 12.04</a>
 * VM login details:<br/>
 Username: vagrant<br/>
@@ -17,3 +18,6 @@ Password: vagrant
 * The commands for installing Java 8 have been taken from <a href="https://github.com/aglover">Andrew Glover's<a> <a href="https://github.com/aglover/ubuntu-equip">github repository</a>.
 * The commands for installing Eclipse in have been taken from <a href="http://blog.versioneye.com/2015/05/05/setting-up-a-dev-environment-with-vagrant/">this blog</a>.
 * <a href="http://www.dev9.com/article/2014/9/dev-environments-with-vagrant">Vagrant tutorial</a> by Dustin Barnes
+
+## Troubleshooting in case of any failure:
+* If "vagrant up" fails during the provisioning with errors related to VBoxManage.exe (the chances of this happenning are very slim), please run "vagrant reload --provision" and vagrant picks up the provisioning from where it left off. 
