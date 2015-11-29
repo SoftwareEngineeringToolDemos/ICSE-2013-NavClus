@@ -1,77 +1,106 @@
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
 
-# All Vagrant configuration is done below. The "2" in Vagrant.configure
-# configures the configuration version (we support older styles for
-# backwards compatibility). Please don't change it unless you know what
-# you're doing.
+unless Vagrant.has_plugin?("vagrant-reload")
+  raise 'vagrant-reload is not installed!'
+end
+
 Vagrant.configure(2) do |config|
-  # The most common configuration options are documented and commented below.
-  # For a complete reference, please see the online documentation at
-  # https://docs.vagrantup.com.
 
-  # Every Vagrant development environment requires a box. You can search for
-  # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "hashicorp/precise32"
   
   config.vm.hostname = "navclus"
 
-  # Disable automatic box update checking. If you disable this, then
-  # boxes will only be checked for updates when the user runs
-  # `vagrant box outdated`. This is not recommended.
-  # config.vm.box_check_update = false
-
-  # Create a forwarded port mapping which allows access to a specific port
-  # within the machine from a port on the host machine. In the example below,
-  # accessing "localhost:8080" will access port 80 on the guest machine.
-  # config.vm.network "forwarded_port", guest: 80, host: 8080
-
-  # Create a private network, which allows host-only access to the machine
-  # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.10"
-
-  # Create a public network, which generally matched to bridged network.
-  # Bridged networks make the machine appear as another physical device on
-  # your network.
-  # config.vm.network "public_network"
-
-  # Share an additional folder to the guest VM. The first argument is
-  # the path on the host to the actual folder. The second argument is
-  # the path on the guest to mount the folder. And the optional third
-  # argument is a set of non-required options.
-  # config.vm.synced_folder "../data", "/vagrant_data"
-
-  # Provider-specific configuration so you can fine-tune various
-  # backing providers for Vagrant. These expose provider-specific options.
-  # Example for VirtualBox:
-  #
   config.vm.provider "virtualbox" do |vb|
     # Display the VirtualBox GUI when booting the machine
-    # vb.gui = true
-    # Customize the amount of memory on the VM:
+    vb.gui = true
+	# Customize the amount of memory on the VM:
     vb.memory = "1024"
 	vb.name = "navclus"
   end
-  #
-  # View the documentation for the provider you are using for more
-  # information on available options.
-
-  # Define a Vagrant Push strategy for pushing to Atlas. Other push strategies
-  # such as FTP and Heroku are also available. See the documentation at
-  # https://docs.vagrantup.com/v2/push/atlas.html for more information.
-  # config.push.define "atlas" do |push|
-  #   push.app = "YOUR_ATLAS_USERNAME/YOUR_APPLICATION_NAME"
-  # end
-
-  # Enable provisioning with a shell script. Additional provisioners such as
-  # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
-  # documentation for more information about their specific syntax and use.
+  
   config.vm.provision "shell", inline: <<-SHELL
-    sudo apt-get update
-	sudo wget --no-check-certificate https://github.com/aglover/ubuntu-equip/raw/master/equip_java8.sh && bash equip_java8.sh
-	sudo wget -O /opt/eclipse-java-luna-SR2-linux-gtk.tar.gz http://ftp.fau.de/eclipse/technology/epp/downloads/release/luna/SR2/eclipse-java-luna-SR2-linux-gtk.tar.gz
-    cd /opt/ && sudo tar -zxvf eclipse-java-luna-SR2-linux-gtk.tar.gz
-	sudo apt-get install -y ubuntu-desktop
-	sudo reboot
+	# Update the OS
+	sudo apt-get autoclean
+	sudo apt-get clean
+	sudo dpkg --configure -a
+	sudo apt-get update -y
+	sudo apt-get install -f
+	
+	# Install ubuntu-desktop for the GUI
+	sudo apt-get install ubuntu-desktop -y
+	
+	# Install lightdm for autologin and setup autologin for user "vagrant"
+	sudo apt-get install lightdm -y
+	echo "autologin-user=vagrant" | sudo tee --append /etc/lightdm/lightdm.conf	
   SHELL
+
+  # Reboot the VM to make sure the GUI comes into effect
+  config.vm.provision :reload
+	
+  config.vm.provision "shell", inline: <<-SHELL
+	# Install Java
+	sudo echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
+	sudo add-apt-repository ppa:webupd8team/java -y
+	sudo apt-get update -y
+	sudo apt-get install oracle-java8-installer -y
+	sudo wget --no-check-certificate https://github.com/aglover/ubuntu-equip/raw/master/equip_java8.sh && bash equip_java8.sh
+	
+	# Install eclipse
+	sudo wget -O /opt/eclipse-java-luna-SR2-linux-gtk.tar.gz http://ftp.fau.de/eclipse/technology/epp/downloads/release/luna/SR2/eclipse-java-luna-SR2-linux-gtk.tar.gz
+	cd /opt/ && sudo tar -zxvf eclipse-java-luna-SR2-linux-gtk.tar.gz
+
+	# Create Eclipse shortcut and make it executable
+	{
+		echo '[Desktop Entry]'
+		echo 'Name=Eclipse'
+		echo 'Type=Application'
+		echo 'Exec=sudo /opt/eclipse/eclipse -data /home/vagrant/workspace'
+		echo 'Terminal=false'
+		echo 'Icon=/opt/eclipse/icon.xpm'
+		echo 'Comment=Integrated Development Environment'
+		echo 'NoDisplay=false'
+		echo 'Categories=Development;IDE;'
+		echo 'Name[en]=Eclipse'
+	} > /home/vagrant/Desktop/eclipse.desktop
+	chmod 755 /home/vagrant/Desktop/eclipse.desktop
+	
+	# Add eclipse to the startup applications 
+	sudo mkdir /home/vagrant/.config/autostart
+	sudo cp /home/vagrant/Desktop/eclipse.desktop /home/vagrant/.config/autostart/
+
+	# Download the plugin and copy it to the appropriate folders to add the plugin to Eclipse
+	sudo wget -O /home/vagrant/Downloads/navclus.zip https://sites.google.com/site/saleese/home/navclus.zip
+	cd /home/vagrant/Downloads && sudo unzip navclus.zip
+	cd /home/vagrant/Downloads/features && sudo mv * /opt/eclipse/features
+	cd /home/vagrant/Downloads/plugins && sudo mv * /opt/eclipse/plugins
+	
+	# Download Installation.txt, license, README.txt from the github repo to the Desktop
+	sudo wget -O /home/vagrant/Desktop/Installation.txt https://raw.githubusercontent.com/SoftwareEngineeringToolDemos/ICSE-2013-NavClus/master/build-vm/Installation.txt
+	sudo wget -O /home/vagrant/Desktop/README.txt https://raw.githubusercontent.com/SoftwareEngineeringToolDemos/ICSE-2013-NavClus/master/build-vm/README.txt
+	sudo wget -O /home/vagrant/Desktop/license https://raw.githubusercontent.com/SoftwareEngineeringToolDemos/ICSE-2013-NavClus/master/build-vm/license
+	
+	# Create a desktop shortcut for the YouTube video
+	{
+		echo '[Desktop Entry]'
+		echo 'Name=Link to NavClus video Demo'
+		echo 'Type=Link'
+		echo 'URL=https://www.youtube.com/watch?v=bMhr4Kgfjfs'
+		echo 'Icon=text-html'
+	} > /home/vagrant/Desktop/youtube.desktop
+	
+	# Download the prezipped workspace and replace it with the existing Eclipse workspace
+	sudo wget -O /home/vagrant/Downloads/workspace.zip https://github.com/SoftwareEngineeringToolDemos/ICSE-2013-NavClus/raw/master/build-vm/workspace.zip
+	cd /home/vagrant/
+	unzip -o /home/vagrant/Downloads/workspace.zip
+	
+	# Remove icons from the launcher. Only leave the icons for home directory, settings and firefox.
+	sudo mkdir ~/icons_backup
+	sudo mv ubuntu-software-center.desktop ~/icons_backup
+	sudo mv ubuntuone-installer.desktop ~/icons_backup
+	sudo mv libreoffice-*.desktop ~/icons_backup
+	
+
+  SHELL
+
+  # Reboot the machine so that eclipse picks up projects from the new workspace upon startup
+  config.vm.provision :reload  
 end
