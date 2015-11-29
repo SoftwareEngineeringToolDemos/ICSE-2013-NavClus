@@ -9,20 +9,20 @@ Step 2:
 https://github.com/saleese/navclus
 
 (b) If the above step fails, install the plugin manually. 
-    Open Eclipse. 
-    Go to Help > "Install new software...". 
-    In the opened window, Enter "http://salab.kaist.ac.kr/navclus" in the "Work with" Text box.
-    Select the NAVCLUS checkbox.
-    Click Finish.
-    Ignore any warnings that might come up during the installation.
-    Restart eclipse if needed.
+    1. Open Eclipse. 
+    2. Go to Help > "Install new software...". 
+    3. In the opened window, Enter "http://salab.kaist.ac.kr/navclus" in the "Work with" Text box.
+    4. Select the NAVCLUS checkbox.
+    5. Click Finish.
+    6. Ignore any warnings that might come up during the installation.
+    7. Restart eclipse if needed.
 
 Step 3:
 
 Once NavClus is installed, the interactions between the classes and files can be seen by opening the "Class View". Class View can be opened by performing the following steps.
 
-    In the Eclipse Menu bar, go to Window > Show View > Other.
-    Search for "Class View" in the "Show View" dialogue box.
-    Click on "Class View". This opens up a window where the class interactions can be seen.
+    1. In the Eclipse Menu bar, go to Window > Show View > Other.
+    2. Search for "Class View" in the "Show View" dialogue box.
+    3. Click on "Class View". This opens up a window where the class interactions can be seen.
 
 In this VM all the above steps have been predone and the NavClus Class View can be directly viewed by clicking the blue globe on the right sire of the eclipse window.
