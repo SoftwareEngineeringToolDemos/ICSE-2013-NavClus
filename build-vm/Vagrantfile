@@ -98,7 +98,6 @@ Vagrant.configure(2) do |config|
 	sudo mv /usr/share/applications/ubuntuone-installer.desktop /home/vagrant/icons_backup
 	sudo mv /usr/share/applications/libreoffice-*.desktop /home/vagrant/icons_backup
 	
-
   SHELL
 
   # Reboot the machine so that eclipse picks up projects from the new workspace upon startup
