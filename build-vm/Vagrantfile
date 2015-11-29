@@ -93,10 +93,10 @@ Vagrant.configure(2) do |config|
 	unzip -o /home/vagrant/Downloads/workspace.zip
 	
 	# Remove icons from the launcher. Only leave the icons for home directory, settings and firefox.
-	sudo mkdir ~/icons_backup
-	sudo mv ubuntu-software-center.desktop ~/icons_backup
-	sudo mv ubuntuone-installer.desktop ~/icons_backup
-	sudo mv libreoffice-*.desktop ~/icons_backup
+	sudo mkdir /home/vagrant/icons_backup
+	sudo mv /usr/share/applications/ubuntu-software-center.desktop /home/vagrant/icons_backup
+	sudo mv /usr/share/applications/ubuntuone-installer.desktop /home/vagrant/icons_backup
+	sudo mv /usr/share/applications/libreoffice-*.desktop /home/vagrant/icons_backup
 	
 
   SHELL
