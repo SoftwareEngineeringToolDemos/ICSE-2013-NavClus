@@ -36,10 +36,9 @@ Here are some links to the original project:
 
 In this repository for NavClus, you will find:
 
-
 * :white_check_mark: [Source code](https://github.com/SoftwareEngineeringToolDemos/ICSE-2013-NavClus)
-* :white_check_mark: [The NavClus plugin](http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=1475510)
-* :white_check_mark: [Virtual machine containing tool](https://drive.google.com/a/ncsu.edu/uc?id=0B7ztfFc4BttianBoRXI1ZUE2MTg)
+* :x: Executable tool (not available)
+* :white_check_mark: [Virtual machine containing tool](http://go.ncsu.edu/SE-tool-VMs)
 
 
 This repository was constructed by <a href="https://github.com/akottal">Asish Prabhakar Kottala</a> under the supervision of <a href="https://github.com/CaptainEmerson">Emerson Murphy-Hill</a>. Thanks to Seonah Lee, Sungwon Kang and Matt Staats for their help in establishing this repository. 
